@@ -1,0 +1,73 @@
+ch3
+Good habit: to initialize variable that'll be used later to null, again it's  a preference
+======
+ch4
+#1 rule of programming: KISS; keep it simple, stupid - Lane Wagner
+=======
+ch5
+CONCAT METHOD
+let nums = [1, 2, 3]
+nums = nums.concat([4, 5, 6])
+console.log(nums)
+// Prints: [1, 2, 3, 4, 5, 6]
+
+vs. SPREAD SYNTAX
+const nums = [1, 2, 3]
+const newNums = [...nums, 4, 5, 6]
+console.log(newNums)
+// Prints: [1, 2, 3, 4, 5, 6]
+
+This comes down to personal preference, but I prefer the spread syntax. It's newer, but I also like it because, in my opinion, the .concat method can be confusing. I would expect the .concat method to mutate the array in place, but instead, it returns a new array. - Lane
+const nums = [1, 2, 3]
+nums.concat([4, 5, 6])
+console.log(nums)
+// Prints: [1, 2, 3]
+====================
+ch6
+WHEN SHOULD YOU USE FOR-OF LOOPS?
+You need to iterate over an entire array
+You need to go in ascending order
+You don't need access to the index value
+You don't need to make updates to the array's items
+=================
+ch7
+OBJECT SYNTACTIC SUGAR
+#1
+const name = 'Apple'
+const radius = 2
+const color = 'red'
+const apple = {
+  name: name,
+  radius: radius,
+  color: color,
+}
+#2
+const name = 'Apple'
+const radius = 2
+const color = 'red'
+const apple = {
+  name,
+  radius,
+  color,
+}
+Prefer the #2 example!
+
+
+for...in
+for...of
+ARE DIFFERENT!
+
+
+FAT ARROW FUNCTIONS PRESERVE 'THIS'
+const author = {
+  firstName: 'Lane',
+  lastName: 'Wagner',
+  getName: () => {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+console.log(author.getName())
+// Prints: undefined undefined
+// because the parent scope (the scope outside of the author object)
+// never defined .firstName and .lastName properties
+=============
